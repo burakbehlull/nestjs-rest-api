@@ -21,14 +21,19 @@ export class TodosController {
         return this.service.todosGetOne(id)
     }
 
+    @Put('/update/:id')
+    todosUpdate(@Param('id') id, @Body() todos: Todo){
+        return this.service.todosUpdate(id, todos)
+    }
+
     @Delete('/remove/:id')
     todosDelete(@Param('id') id){
         return this.service.todosDelete(id)
     }
 
-    @Put('/update/:id')
-    todosUpdate(@Param('id') id, @Body() todos: Todo){
-        return this.service.todosUpdate(id, todos)
+    @Delete('/removeAll')
+    todosDeleteAll(){
+        return this.service.todosDeleteAll()
     }
 
 }

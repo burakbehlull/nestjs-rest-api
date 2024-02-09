@@ -21,11 +21,16 @@ export class TodosService {
         const todos = new this.todoModel(values)
         return todos.save()
     }
+
     async todosDelete(id){
         return await this.todoModel.deleteOne({_id:id})
     }
 
     async todosUpdate(id, values){
         return await this.todoModel.updateOne({_id:id}, values)
+    }
+
+    async todosDeleteAll(){
+        return await this.todoModel.deleteMany({})
     }
 }
