@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { TodosService } from './todos.service';
 import { Todo } from './dto/todo.dto';
 @Controller('todos')
@@ -13,5 +13,11 @@ export class TodosController {
     @Post('/add')
     todosAdd(@Body() todos: Todo){
         return this.service.todosAdd(todos)
+    }
+
+    @Get('/one/:id')
+    todosGetOne(@Param('id') id){
+        console.log(id)
+        return this.service.todosGetOne(id)
     }
 }
