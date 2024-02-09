@@ -12,4 +12,9 @@ export class TodosService {
     async todosGetAll(){
         return await this.todoModel.find({})
     }
+
+    async todosAdd(values){
+        const todos = new this.todoModel(values)
+        return todos.save()
+    }
 }
